@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+}
+
+.hexagon_wrapper_top {
+  width: 28%;
+  max-width: 220px; /* prevents oversized scaling */
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-shrink:0;
+}
+
+.hexagon_wrapper {
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+/* ----- Base Hexagon Shape ----- */
+.hex,
+.blank_hexagon {
+  width: 100%;
+  aspect-ratio: 2 / 1.732; /* width : height = 2s : √3s */
+  clip-path: polygon(
+    25% 0%,
+    75% 0%,
+    100% 50%,
+    75% 100%,
+    25% 100%,
+    0% 50%
+  );
+  flex-shrink: 0;
+}
+
+/* ----- Filled Hexagon ----- */
+.hex {
+  position: relative;
+  transform: rotate(30deg);
+  display: flex;
+  background: linear-gradient(
+    to top,
+    var(--frontFillColor) calc(var(--fillSpeed) * 1%),
+    var(--bgFillColor) calc(var(--fillSpeed) * 1%)
+  );
+}
+
+/* Accuracy overlay */
+.hex .overlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  height: calc((var(--fillSpeed) / 100) * var(--fillAccuracy) * 1%);
+  background-color: rgba(0, 0, 0, 0.1);
+
+  z-index: 1;
+}
+
+/* Inner content (text/icons) */
+.hex .content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(-30deg); /* counter rotation */
+  z-index: 2;
+  gap: 0.5rem;
+  font-size: clamp(0.85rem, 1vw + 0.5rem, 1.0rem);
+  text-align: center;
+}
+
+/* ----- Blank Hexagon (inactive state) ----- */
+.blank_hexagon {
+  background-color: #f0f0f0;
+  transform: rotate(-30deg); /* opposite rotation for flat top */
+}

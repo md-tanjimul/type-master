@@ -1,0 +1,14 @@
+@keyframes blinkBorder {
+  0%, 50% {
+    border-color: #4B5563; /* Tailwind's gray-600 */
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+
+.blink-border {
+  border-color: #4B5563;
+  animation: blinkBorder 1s step-start infinite;
+  /* animation-delay: 0.5s; */ /* if needed in future */
+}

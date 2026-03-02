@@ -1,0 +1,64 @@
+.countdown {
+  position: relative;
+  font-size: 5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1f2937; /* gray-800 */
+  background-color:orange;
+}
+
+.count {
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.5);
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.num3 { animation-name: show3; }
+.num2 { animation-name: show2; }
+.num1 { animation-name: show1; }
+.go   { animation-name: showGo; }
+
+
+
+@keyframes show3 {
+  0%, 19.9% { opacity: 1; transform: scale(1); }
+  20%, 100% { opacity: 0; transform: scale(0.5); }
+}
+@keyframes show2 {
+  0%, 19.9% { opacity: 0; transform: scale(0.5); }
+  20%, 39.9% { opacity: 1; transform: scale(1); }
+  40%, 100% { opacity: 0; transform: scale(0.5); }
+}
+@keyframes show1 {
+  0%, 39.9% { opacity: 0; transform: scale(0.5); }
+  40%, 59.9% { opacity: 1; transform: scale(1); }
+  60%, 100% { opacity: 0; transform: scale(0.5); }
+}
+
+
+
+@keyframes showGo {
+  0%, 59.9% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  60%, 85% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+
+
+
+

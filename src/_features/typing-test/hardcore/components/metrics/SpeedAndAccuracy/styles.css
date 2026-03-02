@@ -1,0 +1,31 @@
+/* Category legend container */
+.category_marker_nav {
+  width: 30%;
+  display: flex;
+  align-items: center; /* better alignment for vertical list */
+}
+
+/* Legend list */
+.category_marker_nav > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* spacing between items */
+  padding: 0; /* remove default ul padding */
+  margin: 0;  /* remove default ul margin */
+  list-style: none; /* remove bullets */
+  width: 100%; /* ensure it fills parent container */
+}
+
+/* Legend item */
+.category_marker_nav > ul > li {
+  display: flex;
+  align-items: center; /* vertically align square and label */
+  gap: 0.5rem;
+  flex-wrap: wrap; /* ensures text or square doesn't overflow */
+}
+
+/* Square color indicator inside legend item */
+.category_marker_nav > ul > li > span {
+  flex-shrink: 0; /* prevent shrinking on small screens */
+  border-radius: 0.25rem; /* optional: slightly rounded square */
+}

@@ -1,0 +1,28 @@
+@keyframes blinkCaret {
+  0%, 50% {
+    background-color: violet; /* Visible */
+  }
+  50.01%, 100% {
+    background-color: transparent; /* Invisible */
+  }
+}
+
+.caret {
+  position: absolute;
+  width: 0.15em;
+  height: 1.2em;
+  z-index: 10;
+  background-color: violet;
+  opacity:0.6;
+  transition: left 0.15s ease-out, top 0.15s ease-out;
+  transform: translateX(-0.09em);
+  animation: blinkCaret 1s step-start infinite;
+}
+
+
+.caret.moving {
+  animation: none !important;   /* kill the animation */
+  /* background-color: rgba(0, 0, 0, 0.2) !important; */
+  width: 0.08em;
+  opacity:1;
+}
